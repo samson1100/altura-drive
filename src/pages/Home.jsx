@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
-import cars from "../data/cars";
+import { useEffect, useMemo, useState } from "react";
+import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 import CarCard from "../components/CarCard";
 import FilterBar from "../components/FilterBar";
 import styles from "./Home.module.css";
@@ -7,19 +8,39 @@ import styles from "./Home.module.css";
 function sortCars(list, sort) {
   const arr = [...list];
 
-  if (sort === "price-asc") return arr.sort((a, b) => a.price - b.price);
-  if (sort === "price-desc") return arr.sort((a, b) => b.price - a.price);
-  if (sort === "year") return arr.sort((a, b) => b.year - a.year);
-  if (sort === "km") return arr.sort((a, b) => a.km - b.km);
+  if (sort === "price-asc") return arr.sort((a, b) => Number(a.price) - Number(b.price));
+  if (sort === "price-desc") return arr.sort((a, b) => Number(b.price) - Number(a.price));
+  if (sort === "year") return arr.sort((a, b) => Number(b.year) - Number(a.year));
+  if (sort === "km") return arr.sort((a, b) => Number(a.km) - Number(b.km));
 
   return arr;
 }
 
 function Home() {
+  const [cars, setCars] = useState([]);
   const [filter, setFilter] = useState("All");
   const [sort, setSort] = useState("featured");
   const [search, setSearch] = useState("");
   const [lead, setLead] = useState({ name: "", phone: "" });
+
+  useEffect(() => {
+    async function fetchCars() {
+      try {
+        const snapshot = await getDocs(collection(db, "cars"));
+
+        const firebaseCars = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setCars(firebaseCars);
+      } catch (error) {
+        console.log("Error fetching cars:", error);
+      }
+    }
+
+    fetchCars();
+  }, []);
 
   const displayed = useMemo(() => {
     let list = [...cars];
@@ -30,16 +51,17 @@ function Home() {
 
     if (search.trim()) {
       const q = search.toLowerCase();
+
       list = list.filter(
         (car) =>
-          car.brand.toLowerCase().includes(q) ||
-          car.name.toLowerCase().includes(q) ||
-          car.fuel.toLowerCase().includes(q)
+          car.brand?.toLowerCase().includes(q) ||
+          car.name?.toLowerCase().includes(q) ||
+          car.fuel?.toLowerCase().includes(q)
       );
     }
 
     return sortCars(list, sort);
-  }, [filter, sort, search]);
+  }, [cars, filter, sort, search]);
 
   function handleLeadSubmit(e) {
     e.preventDefault();
@@ -50,6 +72,7 @@ function Home() {
     }
 
     const msg = `Hi, my name is ${lead.name}. I am interested in your luxury car inventory. Please contact me at ${lead.phone}.`;
+
     window.open(
       `https://wa.me/918296321347?text=${encodeURIComponent(msg)}`,
       "_blank"
@@ -72,18 +95,13 @@ function Home() {
 
           <p className={styles.sub}>
             Handpicked BMW, Mercedes-Benz, Audi, Porsche and more — verified,
-            inspected, and available for serious buyers.          
-
-            WHY US?
+            inspected, and available for serious buyers.
           </p>
 
           <div className={styles.trustBadges}>
-            <div>Zero commission
-</div>
-            <div>Clear documentation
-</div>
-            <div>Ready for inspection
-</div>
+            <div>Zero commission</div>
+            <div>Clear documentation</div>
+            <div>Ready for inspection</div>
             <div>Available for test drive</div>
           </div>
         </div>
