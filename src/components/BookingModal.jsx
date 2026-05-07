@@ -7,7 +7,7 @@ const INITIAL_FORM = { name: "", phone: "", date: "", time: "" };
 export default function BookingModal({ car, onClose }) {
   const [form, setForm] = useState(INITIAL_FORM);
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [, setErrors] = useState({});
 
   function validate() {
     const errs = {};
