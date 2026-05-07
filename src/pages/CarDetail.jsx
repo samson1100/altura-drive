@@ -181,14 +181,15 @@ function CarDetail() {
           </div>
 
           <div className={styles.specsGrid}>
-            <SpecTile label="Year" value={car.year} />
-            <SpecTile label="KM" value={fmtKm(Number(car.km || 0))} />
-            <SpecTile label="Fuel" value={car.fuel} />
-            <SpecTile label="Transmission" value={car.transmission} />
-            <SpecTile label="Ownership" value={car.ownership} />
-            <SpecTile label="Color" value={car.color} />
-            <SpecTile label="Engine" value={car.engine} />
-            <SpecTile label="Power" value={car.power} />
+            <SpecTile label="Year: " value={car.year} />
+            <SpecTile label="KM: " value={fmtKm(Number(car.km || 0))} />
+            <SpecTile label="Registration: " value={car.registrationState} />
+            <SpecTile label="Fuel: " value={car.fuel} />
+            <SpecTile label="Transmission: " value={car.transmission} />
+            <SpecTile label="Ownership: " value={car.ownership} />
+            <SpecTile label="Color: " value={car.color} />
+            <SpecTile label="Engine: " value={car.engine} />
+            <SpecTile label="Power: " value={car.power} />
           </div>
 
           <div className={styles.ctas}>
