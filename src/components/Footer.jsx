@@ -34,7 +34,7 @@ function Footer() {
         <div className={styles.col}>
           <h4 className={styles.heading}>Contact</h4>
           <ul>
-            <li>+91 98765 43210</li>
+            <li>+91 8296321347</li>
             <li>hello@alturadrive.in</li>
             <li>Bengaluru, Karnataka</li>
             <li>Mon–Sat, 9am – 7pm</li>
