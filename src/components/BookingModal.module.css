@@ -1,0 +1,258 @@
+/* BookingModal.module.css */
+
+/* ── Overlay ──────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.87);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Modal box ────────────────────────────────────────────── */
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-hover);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  animation: slideUp 0.25s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.8rem 2rem 0;
+}
+
+.title {
+  font-family: var(--ff-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.subtitle {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.close {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Body ─────────────────────────────────────────────────── */
+.body {
+  padding: 1.5rem 2rem 2rem;
+}
+
+/* Car strip preview */
+.carStrip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.carThumb {
+  width: 64px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.carName {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.carPrice {
+  font-size: 0.78rem;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+/* Form fields */
+.field {
+  margin-bottom: 1.1rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.72rem 1rem;
+  border-radius: var(--radius);
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+  color-scheme: dark;
+}
+
+.input:focus {
+  border-color: var(--gold);
+}
+
+.inputError {
+  border-color: #c0392b !important;
+}
+
+.error {
+  display: block;
+  font-size: 0.72rem;
+  color: #e74c3c;
+  margin-top: 0.3rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Submit */
+.submitBtn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  transition: background var(--transition), transform var(--transition);
+  margin-top: 0.4rem;
+}
+
+.submitBtn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* ── Success state ────────────────────────────────────────── */
+.success {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid var(--gold-dim);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+
+.successTitle {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.successMsg {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.successMsg strong {
+  color: var(--text);
+}
+
+.doneBtn {
+  margin-top: 1.8rem;
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+
+.doneBtn:hover {
+  background: var(--gold-light);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .modal {
+    max-width: 100%;
+  }
+
+  .header {
+    padding: 1.4rem 1.4rem 0;
+  }
+
+  .body {
+    padding: 1.2rem 1.4rem 1.6rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

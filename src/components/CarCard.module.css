@@ -1,0 +1,142 @@
+/* CarCard.module.css */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-hover);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Badge ────────────────────────────────────────────────── */
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* ── Image ────────────────────────────────────────────────── */
+.imgWrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* 👈 keeps clean shape */
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 👈 SHOW FULL IMAGE */
+}
+
+.card:hover .imgWrap img {
+  transform: scale(1.05);
+}
+
+/* ── Body ─────────────────────────────────────────────────── */
+.body {
+  padding: 1.4rem;
+}
+
+.brand {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.name {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+  line-height: 1.2;
+}
+
+/* ── Specs row ────────────────────────────────────────────── */
+.specs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.spec {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.specDivider {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1.1rem;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.priceLabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+}
+
+.price {
+  font-family: var(--ff-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.viewBtn {
+  padding: 0.5rem 1.1rem;
+  background: transparent;
+  border: 1px solid var(--border-hover);
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+  font-weight: 500;
+}
+
+.viewBtn:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}

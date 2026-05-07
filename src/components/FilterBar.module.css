@@ -1,0 +1,83 @@
+/* FilterBar.module.css */
+.bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-right: 0.25rem;
+}
+
+.pill {
+  padding: 0.38rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  font-family: var(--ff-body);
+  cursor: pointer;
+}
+
+.pill:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+}
+
+.pill.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.07);
+}
+
+.count {
+  margin-left: 0.25rem;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.sort {
+  margin-left: auto;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.38rem 0.85rem;
+  font-size: 0.75rem;
+  font-family: var(--ff-body);
+  border-radius: var(--radius);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.sort:hover {
+  border-color: var(--border-hover);
+}
+
+.sort option {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .bar {
+    padding: 0.8rem 1rem;
+  }
+
+  .sort {
+    margin-left: 0;
+    width: 100%;
+  }
+}
