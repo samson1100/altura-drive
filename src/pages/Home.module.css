@@ -18,13 +18,35 @@
   inset: 0;
   background: radial-gradient(circle at top left, rgba(201, 168, 76, 0.12), transparent 35%);
 }
-
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .heroContent,
 .leadBox {
   position: relative;
   z-index: 1;
 }
+.btnPrimary {
+  padding: 14px 26px;
+  background: var(--gold);
+  color: black;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
 
+.btnSecondary {
+  padding: 14px 26px;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
 .badge {
   color: var(--gold);
   letter-spacing: 0.18em;

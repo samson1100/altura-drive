@@ -4,6 +4,7 @@
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
+
 export default function Navbar() {
   const { pathname } = useLocation();
 
@@ -21,12 +22,10 @@ export default function Navbar() {
         >
           Inventory
         </Link>
-        <a href="#about" className={styles.link}>
-          About
-        </a>
-        <a href="#contact" className={styles.link}>
-          Contact
-        </a>
+        <Link to="/about" className={styles.link}>
+  About
+</Link>
+
         <Link to="/" className={styles.cta}>
           View All Cars
         </Link>

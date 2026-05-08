@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import CarCard from "../components/CarCard";
@@ -44,11 +45,12 @@ function Home() {
 
   const displayed = useMemo(() => {
     let list = [...cars];
+
     list.sort(
-  (a, b) =>
-    (a.featuredOrder || 999) -
-    (b.featuredOrder || 999)
-);
+      (a, b) =>
+        Number(a.featuredOrder || 999) -
+        Number(b.featuredOrder || 999)
+    );
 
     if (filter !== "All") {
       list = list.filter((car) => car.brand === filter);
@@ -102,6 +104,16 @@ function Home() {
             Handpicked BMW, Mercedes-Benz, Audi, Porsche and more — verified,
             inspected, and available for serious buyers.
           </p>
+
+          <div className={styles.heroActions}>
+            <a href="#inventory" className={styles.btnPrimary}>
+              Explore Inventory   
+            </a>
+ <Link to="/how-it-works" className={styles.btnSecondary}>
+          How It Works
+            </Link>
+           
+          </div>
 
           <div className={styles.trustBadges}>
             <div>Zero commission</div>

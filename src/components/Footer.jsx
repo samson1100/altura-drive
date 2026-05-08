@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className={styles.footer}>
@@ -24,8 +24,10 @@ function Footer() {
           <h4 className={styles.heading}>Quick Links</h4>
           <ul>
             <li>Inventory</li>
-            <li>About Us</li>
-            <li>How It Works</li>
+            <li>
+  <Link to="/about">About Us</Link>
+</li>
+            <li><Link to="/how-it-works">How It Works</Link></li>
             <li>Blog</li>
           </ul>
         </div>
