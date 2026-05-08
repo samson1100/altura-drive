@@ -39,7 +39,7 @@ function Footer() {
             <li>+91 8296321347</li>
             <li>hello@alturadrive.in</li>
             <li>Bengaluru, Karnataka</li>
-            <li>Mon–Sat, 9am – 7pm</li>
+            
           </ul>
         </div>
 
