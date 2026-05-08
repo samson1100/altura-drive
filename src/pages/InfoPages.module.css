@@ -28,8 +28,8 @@
   margin-bottom: 1.5rem;
 }
 
-.aboutHero h1 span,
-.statement h2 span {
+.aboutHero h1,
+.statement h2 {
   color: var(--gold);
 }
 
