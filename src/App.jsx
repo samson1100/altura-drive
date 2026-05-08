@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import CarDetail from "./pages/CarDetail";
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/car/:id" element={<CarDetail />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/about" element={<About />} />
       </Routes>
 
       <Footer />

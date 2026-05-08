@@ -44,6 +44,11 @@ function Home() {
 
   const displayed = useMemo(() => {
     let list = [...cars];
+    list.sort(
+  (a, b) =>
+    (a.featuredOrder || 999) -
+    (b.featuredOrder || 999)
+);
 
     if (filter !== "All") {
       list = list.filter((car) => car.brand === filter);
